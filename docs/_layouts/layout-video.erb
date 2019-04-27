@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= Scms.renderView("_layouts/includes/header.erb", page) %>
+    <link href="~/css/video.css" rel="stylesheet">
+  </head>
+  <body>
+    <%= Scms.renderView("_layouts/includes/navbar.erb", page) %>
+
+    <section class="content-section video-section" style="background-image: url('~/images/index/gaynor-probert-home-v1.1.png');">
+      <div class="pattern-overlay">
+      <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=XAHaVETM1sE', containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1, ratio: '16/9', loop:false}">bg</a>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <%= page.views["intro"] %>
+         </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <%= Scms.renderView("_layouts/includes/main.erb", page) %>
+    <%= Scms.renderView("_layouts/includes/scripts.erb", page) %>
+  </body>
+</html>

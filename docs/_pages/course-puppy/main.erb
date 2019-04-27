@@ -1,0 +1,29 @@
+<div class="page-header">
+    <h1>Congratulations! You have a new puppy.</h1>
+</div>
+
+<div class="row">
+
+	<div class="col-xs-12 col-sm-12 col-md-8">
+		<img alt="Puppies Mixing" class="img-responsive img-thumbnail pull-right" src="~/images/courses/puppy/puppy-v1.png" style="margin: 0 0 15px 20px;" />
+		<%= Scms.renderView("_pages/course-puppy/_includes/you-will-learn.html") %>
+		
+		<h3>Course Details</h3>
+		<img class="img-thumbnail img-responsive pull-left" src="~/images/courses/puppy/flying-ewok-v1.png" style="margin: 0 10px 10px 0;" />
+		<%= Scms.renderView("_pages/course-puppy/_includes/course-details.html") %>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4">
+		<div class="callout callout-info" style="margin: 0;">
+		<%= Scms.renderView("_pages/course-puppy/_includes/testi.html") %>
+		</div>
+	</div>
+
+</div>
+
+<%= Scms.renderView("_pages/course-puppy/faqs.xml") %>
+
+<hr />
+<p>If your puppy is 5 months of age or over it's time to move to the:</p>
+<div>
+	<a href="~/course-junior/" class="btn btn-primary">Next: Junior Course</a>
+</div>

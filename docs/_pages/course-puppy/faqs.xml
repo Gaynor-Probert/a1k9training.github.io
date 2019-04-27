@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="_includes/faqs.xsl"?>
+
+<faqs>
+
+  <faq>
+    <q>
+     Do we have to book in to the puppy socialisation classes, or can we just turn up?
+    </q>
+    <a>
+     If your puppy is 5 months or less, and has had both its vaccinations, you can just turn up and join in.
+    </a>
+  </faq>
+
+  <faq>
+    <q>
+      Can I bring my children to the puppy socialisation classes?
+    </q>
+    <a>
+      Children are encouraged to come and take part in the puppy socialisation classes.
+    </a>
+  </faq>
+
+  <faq>
+    <q>
+      What happens, if my dog is over 5 months, and I have not attended 6 classes?  
+    </q>
+    <a>
+      You will be credited the money for the classes you have not used in the Bronze course
+    </a>
+  </faq>
+
+</faqs>
