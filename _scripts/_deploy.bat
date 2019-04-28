@@ -15,4 +15,4 @@ copy %wd%\_build.bat  %temp%\a1k9\_build.bat
 move %temp%/a1k9 %wd%
 start %wd%
 
-pause
+exit
