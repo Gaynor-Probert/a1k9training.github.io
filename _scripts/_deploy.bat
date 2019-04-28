@@ -21,12 +21,11 @@ del %temp%\a1k9\_* /f/s/q
 
 echo Swithcing branch
 @call git checkout gh-pages
+start %temp%/a1k9
 
 echo Copying temp files to gp-pages
 xcopy %temp%\a1k9 %wd% /E/H
 
 echo Done
-start %temp%/a1k9
 start %wd%
-
 pause
