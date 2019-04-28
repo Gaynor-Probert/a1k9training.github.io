@@ -23,7 +23,7 @@ echo Swithcing branch
 @call git checkout gh-pages
 
 echo Copying temp files to gp-pages
-copy %temp%/a1k9/ %wd%/
+xcopy %temp%\a1k\ %wd\
 
 echo Done
 start %temp%/a1k9
