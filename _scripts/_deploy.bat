@@ -13,6 +13,7 @@ copy %wd%\_build.bat  %temp%\a1k9\_build.bat
 @call git checkout gh-pages
 
 move %temp%/a1k9 %wd%
+start %temp%/a1k9
 start %wd%
 
 pause
