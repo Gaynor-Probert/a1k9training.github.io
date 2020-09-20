@@ -5,5 +5,5 @@ This is an almost magical time when you are able to develop your puppy&#39;s bra
 
 <div class="alert alert-success" style="margin-bottom: 0;">
     <p>Classes held every Sunday at 3.00pm<br />
-    <strong>Please <a href="/contact">book a place</a> prior to attendance</strong></p>
+    <strong>Please <a href="/find-us/">book a place</a> prior to attendance</strong></p>
 </div>
