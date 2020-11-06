@@ -1,33 +1,21 @@
 const Kiss = require("./src/kiss-ssg.js");
 const kiss = new Kiss({ dev: true });
 
-const slugMapper = ({ model }) => {
-  return {
-    slug: model.slug,
-  };
-};
-const courseController = ({ model }) => {
-  return {
-    slug: model.slug,
-    title: model.title,
-    model: model,
-  };
-};
-
+const titleMapper = require("./src/controller/title.js");
 kiss
   .page(
     {
       view: "index.hbs",
       model: "index.json",
     },
-    slugMapper
+    titleMapper
   )
   .page(
     {
       view: "find-us.hbs",
       model: "find-us.json",
     },
-    slugMapper
+    titleMapper
   )
   .pages(
     {
@@ -35,5 +23,5 @@ kiss
       model: "courses",
       nav: true,
     },
-    courseController
+    require("./src/controller/course.js")
   );
