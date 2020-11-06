@@ -2,7 +2,9 @@
   "name": "a1k9-training",
   "version": "1.0.0",
   "main": "kiss-ssg.js",
-  "dependencies": {},
+  "dependencies": {
+    "glob": "^7.1.6"
+  },
   "devDependencies": {
     "http-server": "^0.12.3",
     "kiss-ssg": "^0.2.0"
