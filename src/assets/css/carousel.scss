@@ -10,12 +10,15 @@ body {
   color: $grey;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Buenard', serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Buenard", serif;
 }
 
 h1 {
-  font-size: 28px; 
+  font-size: 28px;
   margin-top: 0;
 }
 
@@ -23,26 +26,30 @@ h1 {
   position: relative;
   margin: 15px 0;
   padding: 22px;
-  border: 1px solid #CCC;
-  border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
 }
 
-.border{ 
-  h2, h3, h4 {
-  margin-top: 0px;
+.border {
+  h2,
+  h3,
+  h4 {
+    margin-top: 0px;
   }
 }
 
 /*a.external, a[rel=external] {
-  background: url('~/static/images/icon_external.gif') no-repeat top right;
+  background: url('/images/icon_external.gif') no-repeat top right;
   padding-right: 18px;
 }*/
 
-.thumbnail-content{
+.thumbnail-content {
   padding: 10px;
 }
 
-.thumbnail-content .btn{
+.thumbnail-content .btn {
   margin-top: 15px;
 }
 
@@ -75,14 +82,14 @@ h1 {
 -------------------------------------------------- */
 
 .carousel {
-	height: 450px;
-	margin-bottom: 40px;
+  height: 450px;
+  margin-bottom: 40px;
 }
 
 .caption {
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
-  color: #FFF;
+  color: #fff;
   margin-top: 100px;
   padding: 20px;
 }
@@ -94,20 +101,19 @@ h1 {
 .item,
 .active,
 .carousel-inner {
-	height:100%;
+  height: 100%;
 }
 
 .fill {
-	width:100%;
-	height:100%;
-	background-position: center;
-	background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
 }
 
 .pattern-overlay {
   background-color: rgba(71, 71, 71, 0.59);
 }
-
 
 .callout {
   padding: 10px;
@@ -167,9 +173,6 @@ h1 {
   color: #5bc0de;
 }
 
-
-
-
 /* Featurettes
 ------------------------- */
 
@@ -185,17 +188,14 @@ h1 {
   margin-top: 5px;
 }
 
-
-
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
 @media (min-width: 768px) {
-
   h1 {
-    font-size: 32px; 
+    font-size: 32px;
     margin-top: 3px;
-  } 
+  }
 
   .push-down {
     margin-top: 300px;
@@ -206,11 +206,11 @@ h1 {
     margin-top: 20px;
   }
   .navbar-wrapper .container {
-    padding-left:  15px;
+    padding-left: 15px;
     padding-right: 15px;
   }
   .navbar-wrapper .navbar {
-    padding-left:  0;
+    padding-left: 0;
     padding-right: 0;
   }
 
@@ -222,7 +222,7 @@ h1 {
   /* Altered height of Carousel as it can be larger on non-mobile devices */
 
   .carousel {
-  	height: 700px;
+    height: 700px;
   }
 
   /* Bump up size of carousel content */
@@ -244,12 +244,11 @@ h1 {
   .caption p {
     font-size: 16px;
   }
-
 }
 
 @media (min-width: 992px) {
-  h1 { 
-    font-size: 36px; 
+  h1 {
+    font-size: 36px;
   }
 
   .caption p {
@@ -265,4 +264,3 @@ h1 {
     margin-top: 20px;
   }
 }
-

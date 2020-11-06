@@ -1,5 +1,5 @@
 const Kiss = require("kiss-ssg");
-const kiss = new Kiss();
+const kiss = new Kiss({ dev: true });
 
 kiss
   .pages(
