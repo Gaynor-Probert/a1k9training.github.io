@@ -1,27 +1,24 @@
 const Kiss = require("./src/kiss-ssg.js");
 const kiss = new Kiss({ dev: true });
 
-const titleMapper = require("./src/controller/title.js");
+const autoOptionMapper = require("./src/controller/autoOptionMapper.js");
 kiss
   .page(
     {
       view: "index.hbs",
-      model: "index.json",
     },
-    titleMapper
+    autoOptionMapper
   )
   .page(
     {
       view: "find-us.hbs",
-      model: "find-us.json",
     },
-    titleMapper
+    autoOptionMapper
   )
   .pages(
     {
       view: "course.hbs",
       model: "courses",
-      nav: true,
     },
     require("./src/controller/course.js")
   );
