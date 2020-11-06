@@ -39,7 +39,7 @@
           </p>
           <div style="margin-bottom: 10px;">
             <a
-              href="/behavioural-consultations/index.html"
+              href="/behavioural-consultations"
               class="btn btn-primary btn-lg"
             >
               Find out more
@@ -50,7 +50,7 @@
         <div class="col-md-5">
           <img
             class="featurette-image img-responsive"
-            src="{{image-one}}"
+            src="/images/index/gaynor-probert-award-v1.png"
             alt="A1K9 dog training academy"
           />
         </div>
@@ -60,7 +60,7 @@
         <div class="col-md-5">
           <img
             class="featurette-image img-responsive"
-            src="{{image-two}}"
+            src="/images/index/peek-a-boo-dog-1.png"
             alt="A1K9 Dog Training calss"
             style="margin-top: 15px;"
           />
@@ -349,18 +349,18 @@
         <!-- /.col-lg-4 -->
       </div>
       <!-- /.row -->
-      <hr class="featurette-divider" />
-      <footer>
-        <p class="pull-right">
-          <a href="#">
-            Back to top
-          </a>
-        </p>
-        <p>
-          © 2020 Gaynor Probert
-          <!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> -->
-        </p>
-      </footer>
+
     </div>
+  {{/content}}
+
+  {{#content "scripts"}}
+    <script src="/js/jquery.mb.YTPlayer.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        if(!isMobile.any()){
+          $(".player").mb_YTPlayer ();
+        }
+      });
+    </script>
   {{/content}}
 {{/extend}}

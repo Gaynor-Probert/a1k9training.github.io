@@ -26,14 +26,11 @@
 
         {{#block "main"}}{{/block}}
 
-        <hr class="featurette-divider">
-        <footer>
-            <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2020 Gaynor Probert </p>
-        </footer>
+        {{> "layout/footer"}}
     </div>
 
-    
-    {{#block "scripts"}}{{/block}}
+    {{>"layout/scripts"}}
+    {{#block "scripts" mode="prepend"}}
+    {{/block}}
   </body>
 </html>

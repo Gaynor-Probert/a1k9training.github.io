@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    {{> "layout/header"}}
+  </head>
+  <body>
+    {{> "layout/navbar"}}
+
+    <div class="carousel">
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="fill video-section" style="background-image: url('{{model.image}}'); z-index: -99;">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6 {{model.captionclass}}">
+                    <div class="caption" style="{{model.captionclass}}">
+                      {{#block "intro"}}{{/block}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <div class="container">
+       {{#block "main"}}{{/block}}
+       {{> "layout/footer"}}
+
+       {{> "layout/scripts"}}
+      {{#block "scripts"}}{{/block}}
+    </div>
+  </body>
+</html>

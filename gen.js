@@ -3,12 +3,12 @@ const kiss = new Kiss({ dev: true });
 
 kiss
   .page({
-    view: "index2.hbs",
+    view: "index.hbs",
     model: "index.json",
   })
   .page({
-    view: "index.hbs",
-    model: "index.json",
+    view: "find-us.hbs",
+    model: "find-us.json",
   })
   .pages(
     {

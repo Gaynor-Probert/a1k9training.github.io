@@ -226,7 +226,7 @@ class Kiss {
     console.log("Registering partials: ".grey);
     const hbs = glob.sync(`${folder}/**/*.hbs`);
     hbs.forEach((path) => {
-      console.debug("partial: ".grey, path);
+      // console.debug("partial: ".grey, path);
       const source = fs.readFileSync(path, "utf8");
       const reStart = new RegExp(`^${folder}`, "g");
       const reEnd = new RegExp(`\.hbs$`, "g");
