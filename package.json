@@ -1,7 +1,6 @@
 {
-  "name": "k9-dev",
+  "name": "a1k9-training",
   "version": "1.0.0",
-  "description": "",
   "main": "kiss-ssg.js",
   "dependencies": {},
   "devDependencies": {
@@ -16,10 +15,11 @@
     "type": "git",
     "url": "git+https://github.com/aviirna/k9-dev.git"
   },
-  "author": "",
+  "author": "Courtenay Probert",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aviirna/k9-dev/issues"
   },
-  "homepage": "https://github.com/aviirna/k9-dev#readme"
+  "homepage": "https://github.com/aviirna/k9-dev#readme",
+  "description": ""
 }
