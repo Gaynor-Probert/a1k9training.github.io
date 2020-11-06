@@ -1,0 +1,32 @@
+{{#extend "default"}}
+{{#content "main" mode="append"}}
+{{> course/hero model.hero }}
+
+<div class="container">
+    <div class="container marketing">
+
+        <div class="page-header">
+            <h1>{{model.engagement}}</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8">
+                {{> course/learning model }}
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                {{> course/testimonies model.dog }}
+            </div>
+        </div>
+
+        <hr />
+        <p>Successful participants of this course are invited to graduate to our:</p>
+        <div>
+            <a href="./bronze-course.html" class="btn btn-primary">Next: Bronze Course</a>
+        </div>
+
+        <hr class="featurette-divider">
+    </div>
+</div>
+{{/content}}
+{{/extend}}

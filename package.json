@@ -1,0 +1,25 @@
+{
+  "name": "k9-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "kiss-ssg.js",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "kiss-ssg": "^0.2.0"
+  },
+  "scripts": {
+    "gen": "node k9",
+    "serve": "cd ./public && http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aviirna/k9-dev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aviirna/k9-dev/issues"
+  },
+  "homepage": "https://github.com/aviirna/k9-dev#readme"
+}
