@@ -16,4 +16,9 @@ kiss
     view: 'course.hbs',
     controller: 'course.js',
   })
-// .viewState()
+  .complete(() => {
+    console.log('Success'.rainbow)
+  })
+  .then(() => {
+    console.log('Ready to publish'.brightCyan)
+  })

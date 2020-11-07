@@ -20,7 +20,7 @@ class KissPage {
   _slug = 'index'
   _title = 'Kiss page'
 
-  debug = false
+  _debug = false
   view = null
   options = {}
 
@@ -51,6 +51,10 @@ class KissPage {
     }
   }
 
+  set debug(dev) {
+    this._debug = !!dev
+  }
+
   generate() {
     let filePath = this.buildDir
     if (this._path) {
@@ -76,7 +80,7 @@ class KissPage {
         const pageToGenerate = `${filePath}/${this._slug}.html`
         console.log(pageToGenerate.green)
         fs.writeFileSync(pageToGenerate, output)
-        if (this.options && this.debug) {
+        if (this.options && this._debug) {
           fs.writeFileSync(
             pageToGenerate.replace('.html', '.json'),
             JSON.stringify(this.options, null, 1)
@@ -141,8 +145,6 @@ class KissPage {
 }
 
 class Kiss {
-  config = { name: 'Kiss SSG' }
-
   _folders = {
     src: './src',
     assets: './src/assets',
@@ -159,10 +161,7 @@ class Kiss {
     promises: [],
   }
 
-  constructor(config) {
-    const self = this
-    console.log(colors.white('Starting Kiss'))
-    if (!config) config = {}
+  _setupFolders(config) {
     if (config.folders) {
       if (config.folders.src) {
         this._folders = {
@@ -179,67 +178,66 @@ class Kiss {
       this._folders = { ...this._folders, ...config.folders }
     }
     config.folders = this._folders
-    this.config.dev = false
-    if (config.dev) this.config.dev = true
-    this.config = config
 
     console.debug('folders: '.grey, this._folders)
-    this._private.fileSystem.mkDir(this._folders.src)
-    this._private.fileSystem.mkDir(this._folders.assets)
-    this._private.fileSystem.mkDir(this._folders.layouts)
-    this._private.fileSystem.mkDir(this._folders.pages)
-    this._private.fileSystem.mkDir(this._folders.pages)
-    this._private.fileSystem.mkDir(this._folders.components)
-    this._private.fileSystem.mkDir(this._folders.models)
-    this._private.fileSystem.mkDir(this._folders.controllers)
+    this._fileSystem.mkDir(this._folders.src)
+    this._fileSystem.mkDir(this._folders.assets)
+    this._fileSystem.mkDir(this._folders.layouts)
+    this._fileSystem.mkDir(this._folders.pages)
+    this._fileSystem.mkDir(this._folders.pages)
+    this._fileSystem.mkDir(this._folders.components)
+    this._fileSystem.mkDir(this._folders.models)
+    this._fileSystem.mkDir(this._folders.controllers)
 
     try {
       rimraf.sync(this._folders.build)
     } catch (err) {
       console.log(colors.red(err.message))
     }
-    this._private.fileSystem.mkDir(this._folders.build)
+    this._fileSystem.mkDir(this._folders.build)
+  }
 
+  constructor(config) {
+    const self = this
+    console.log('            Starting Kiss            '.zebra)
+    if (!config) config = { dev: false }
+    this.config = config
+
+    this._setupFolders(config)
     ncp(this._folders.assets, this._folders.build, function (err) {
-      if (err) {
-        console.error('Error: '.red, err)
-      }
-
-      console.log(
-        `Copied ${self._folders.assets} to ${self._folders.build}`.grey
-      )
+      if (err) console.error('Error: '.red, err)
+      const msg = `Copied ${self._folders.assets} to ${self._folders.build}`
+      console.log(msg.grey)
     })
 
-    this.registerPartials(this._folders.components)
-    this.registerPartials(this._folders.layouts)
+    this._registerPartials(this._folders.components)
+    this._registerPartials(this._folders.layouts)
 
     console.log('Generating:'.grey)
   }
 
-  _private = {
-    fileSystem: {
-      mkDir(dir) {
-        dir = dir.toLowerCase()
-        if (!fs.existsSync(dir)) {
-          fs.mkdirSync(dir, { recursive: true })
-        }
-      },
-      exists(dir) {
-        return fs.existsSync(dir)
-      },
+  _fileSystem = {
+    mkDir(dir) {
+      dir = dir.toLowerCase()
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true })
+      }
+    },
+    exists(dir) {
+      return fs.existsSync(dir)
     },
   }
 
   _readModel(file) {
     const model = `${this._folders.models}/${file}`
-    if (this._private.fileSystem.exists(model)) {
+    if (this._fileSystem.exists(model)) {
       return JSON.parse(fs.readFileSync(model, 'utf8'))
     }
     console.error('Can not find model on file system'.red, model)
     return null
   }
 
-  registerPartials(folder) {
+  _registerPartials(folder) {
     console.log(`Registering ${folder.replace(this._folders.src, '')}: `.grey)
     const hbs = glob.sync(`${folder}/**/*.hbs`)
     hbs.forEach((path) => {
@@ -256,7 +254,7 @@ class Kiss {
     })
   }
 
-  configOptionMapper(options, optionMapper) {
+  _optionMapper(options, optionMapper) {
     if (typeof optionMapper === 'function') {
       try {
         let mappedOptions = optionMapper(options)
@@ -272,16 +270,16 @@ class Kiss {
     return options
   }
 
-  generate(options, optionMapper) {
+  _kissController(options, optionMapper) {
     if (options.controller) {
       const controllerPath = `${this._folders.controllers}/${options.controller}`
-      if (this._private.fileSystem.exists(controllerPath)) {
+      if (this._fileSystem.exists(controllerPath)) {
         const controller = require.main.require(controllerPath)
-        options = this.configOptionMapper(options, controller)
+        options = this._optionMapper(options, controller)
       }
     }
     if (optionMapper) {
-      options = this.configOptionMapper(options, optionMapper)
+      options = this._optionMapper(options, optionMapper)
     }
     // if the user didn't specify a title auto map title from model if it exists
     if (!options.title) {
@@ -289,7 +287,10 @@ class Kiss {
         options.title = options.model.title
       }
     }
+    return options
+  }
 
+  _generate(options) {
     // console.debug('options:'.grey, options)
     const kissPage = new KissPage(`${this._folders.pages}/${options.view}`)
     kissPage.options = options
@@ -301,14 +302,15 @@ class Kiss {
     // console.debug(kissPage)
   }
 
-  generateDynamic(options, data, optionMapper) {
+  _generateMultiple(options, data, optionMapper) {
     let i = 1
     const slug = options.slug
     if (Array.isArray(data)) {
       data.forEach((model) => {
         options.slug = slug + '-' + i
         options.model = model
-        this.generate(options, optionMapper)
+        options = this._kissController(options, optionMapper)
+        this._generate(options)
         i++
       })
     } else {
@@ -316,13 +318,76 @@ class Kiss {
     }
   }
 
-  generator(options, optionMapper, data, controller) {
+  _generateSelector(options, optionMapper, data, controller) {
     if (options.dynamic) {
-      this.generateDynamic(options, data, optionMapper)
+      this._generateMultiple(options, data, optionMapper)
     } else {
       options.model = data
-      this.generate(options, optionMapper)
+      options = this._kissController(options, optionMapper)
+      this._generate(options)
     }
+  }
+
+  _processPageModel(model) {
+    const p = new Promise((resolve, reject) => {
+      switch (typeof model) {
+        case 'string':
+          // console.debug('Model is string'.grey)
+          if (model.startsWith('http')) {
+            fetch(model)
+              .then((response) => response.json())
+              .then((data) => {
+                resolve(data)
+              })
+              .catch((error) => {
+                console.log(`Error getting model from ${model}`.red)
+                reject({ message: error.message, error: error })
+              })
+          } else if (model.endsWith('.json')) {
+            const data = this._readModel(model)
+            if (data) {
+              resolve(data)
+            } else {
+              reject({ message: `Skipping: ${model}` })
+            }
+          } else {
+            // See if the model is a folder
+            const returnModel = this._folderModel(model)
+            if (returnModel.length > 0) {
+              resolve(returnModel)
+            } else {
+              reject({ message: `Invalid model ${model}` })
+            }
+          }
+          break
+        case 'object':
+          // console.debug('Model is object'.grey)
+          resolve(model)
+          break
+        default:
+          reject({ message: `Unexpected model type: ${typeof model}` })
+      }
+    })
+    this._state.promises.push(p)
+    return p
+  }
+
+  _folderModel(folderModel) {
+    const modelArray = []
+    if (fs.existsSync(`${this._folders.models}/${folderModel}`)) {
+      const modelPath = `${this._folders.models}/${folderModel}`
+      if (fs.lstatSync(modelPath).isDirectory()) {
+        const models = glob.sync(`${modelPath}/*.json`)
+        models.forEach((model) => {
+          // console.debug(model.grey)
+          const data = this._readModel(
+            model.replace(`${this._folders.models}/`, '')
+          )
+          if (data) modelArray.push(data)
+        })
+      }
+    }
+    return modelArray
   }
 
   page(options, optionMapper) {
@@ -332,49 +397,18 @@ class Kiss {
     }
     options.config = this.config
 
-    if (typeof options.model === 'string') {
-      if (options.model.startsWith('http')) {
-        const url = options.model
-        fetch(url)
-          .then((response) => response.json())
-          .then((data) => {
-            this.generator(options, optionMapper, data)
-          })
-          .catch((error) => {
-            console.log(`Error getting model from ${url}`.red)
-            console.error(colors.yellow(error))
-          })
-      } else if (options.model.endsWith('.json')) {
-        const data = this._readModel(options.model)
-        if (data) {
-          this.generator(options, optionMapper, data)
-        } else {
-          console.log('Skipping: ', options.view)
+    this._processPageModel(options.model)
+      .then((data) => {
+        this._generateSelector(options, optionMapper, data)
+        this._state.views.push(options.view)
+      })
+      .catch((error) => {
+        console.log(colors.red(error.message))
+        if (error.error) {
+          console.error(colors.yellow(error.error))
         }
-      } else if (fs.existsSync(`${this._folders.models}/${options.model}`)) {
-        const modelPath = `${this._folders.models}/${options.model}`
-        if (fs.lstatSync(modelPath).isDirectory()) {
-          const models = glob.sync(`${modelPath}/*.json`)
-          const modelArray = []
-          models.forEach((model) => {
-            // console.debug(model.grey)
-            const data = this._readModel(
-              model.replace(`${this._folders.models}/`, '')
-            )
-            if (data) modelArray.push(data)
-          })
-          this.generator(options, optionMapper, modelArray)
-        } else {
-          console.error('Model is not a .json file'.red, options.model)
-        }
-      } else {
-        console.error('Invalid model'.red, options.model)
-      }
-    } else {
-      this.generate(options, optionMapper)
-    }
+      })
 
-    this._state.views.push(options.view)
     return this
   }
 
@@ -400,9 +434,7 @@ class Kiss {
 
         const matchingModel = view.replace(/\.hbs$/, '.json')
         if (
-          this._private.fileSystem.exists(
-            `${this._folders.models}/${matchingModel}`
-          )
+          this._fileSystem.exists(`${this._folders.models}/${matchingModel}`)
         ) {
           console.log('Found matching model: '.grey, matchingModel)
           options.model = matchingModel
@@ -422,6 +454,12 @@ class Kiss {
     // console.log(JSON.stringify(this._state, null, 1))
     console.log(this._state)
     return this
+  }
+
+  complete(callback) {
+    return Promise.all(this._state.promises).then(() => {
+      callback()
+    })
   }
 }
 
