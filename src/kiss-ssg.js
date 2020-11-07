@@ -15,7 +15,7 @@ handlebars.registerHelper(layouts(handlebars))
 const fetch = require('node-fetch')
 const colors = require('colors')
 
-class Page {
+class KissPage {
   _path = ''
   _slug = 'index'
   _title = 'Kiss page'
@@ -26,50 +26,18 @@ class Page {
 
   // defaults
   buildDir = './public'
-  pageDir = './src/pages'
 
   constructor(view) {
     this.view = view
-    this._path = view.substring(0, view.lastIndexOf('/'))
-    this._slug = this.utils.toSlug(
+    this._slug = this._utils.toSlug(
       view.substring(view.lastIndexOf('/') + 1, view.length).replace('.hbs', '')
     )
-    this._title = this._slug
-  }
-
-  utils = {
-    toSlug(slug) {
-      return slug
-        .toLowerCase()
-        .trim()
-        .replace(/[\W_]+/g, '-')
-    },
-    trimPath(path) {
-      if (path.startsWith('/')) path = path.substring(1, path.length)
-      if (path.endsWith('/')) path = path.substring(0, path.length - 1)
-      return path
-    },
-    sanitizePath(path) {
-      if (path) {
-        path = this.trimPath(path)
-
-        let pathSegments = path.split('/')
-        const cleanedSegments = []
-        pathSegments.forEach((segment) => {
-          const slugifiedSegment = this.toSlug(segment)
-          cleanedSegments.push(slugifiedSegment.trim())
-        })
-        path = cleanedSegments.join('/')
-      }
-      return path
-    },
+    this._title = this._utils.toTitleCase(this._slug)
   }
 
   set path(path) {
     if (path) {
-      // if (path.startsWith('/')) path = path.substring(1, path.length)
-      // if (path.endsWith('/')) path = path.substring(0, path.length - 1)
-      this._path = this.utils.sanitizePath(path)
+      this._path = this._utils.sanitizePath(path)
     }
   }
 
@@ -78,21 +46,9 @@ class Page {
   }
   set slug(slug) {
     if (slug) {
-      this._slug = this.utils.toSlug(slug)
+      this._slug = this._utils.toSlug(slug)
       // console.debug('Set slug: '.gray, this._slug)
     }
-  }
-
-  getTemplate(view) {
-    let viewText = ''
-    try {
-      viewText = fs.readFileSync(`${this.pageDir}/${view}`, 'utf8')
-      return handlebars.compile(viewText)
-    } catch (error) {
-      console.log('Error reading view'.red)
-      console.error(colors.yellow(error.message))
-    }
-    return null
   }
 
   generate() {
@@ -104,7 +60,7 @@ class Page {
       }
     }
 
-    const template = this.getTemplate(this.view)
+    const template = this._getTemplate(this.view)
     if (template) {
       try {
         let options = {
@@ -133,11 +89,61 @@ class Page {
       }
     }
   }
+
+  _utils = {
+    toSlug(slug) {
+      return slug
+        .toLowerCase()
+        .trim()
+        .replace(/[\W_]+/g, '-')
+    },
+    toTitleCase(str) {
+      return str
+        .toLowerCase()
+        .split(' ')
+        .map(function (word) {
+          return word.charAt(0).toUpperCase() + word.slice(1)
+        })
+        .join(' ')
+    },
+    trimPath(path) {
+      if (path.startsWith('/')) path = path.substring(1, path.length)
+      if (path.endsWith('/')) path = path.substring(0, path.length - 1)
+      return path
+    },
+    sanitizePath(path) {
+      if (path) {
+        path = this.trimPath(path)
+
+        let pathSegments = path.split('/')
+        const cleanedSegments = []
+        pathSegments.forEach((segment) => {
+          const slugifiedSegment = this.toSlug(segment)
+          cleanedSegments.push(slugifiedSegment.trim())
+        })
+        path = cleanedSegments.join('/')
+      }
+      return path
+    },
+  }
+
+  _getTemplate(view) {
+    let viewText = ''
+    try {
+      viewText = fs.readFileSync(view, 'utf8')
+      return handlebars.compile(viewText)
+    } catch (error) {
+      console.log('Error reading view'.red)
+      console.error(colors.yellow(error.message))
+    }
+    return null
+  }
 }
 
 class Kiss {
   config = { name: 'Kiss SSG' }
-  folders = {
+
+  _folders = {
     src: './src',
     assets: './src/assets',
     layouts: './src/layouts',
@@ -148,7 +154,7 @@ class Kiss {
     build: './public',
   }
 
-  state = {
+  _state = {
     views: [],
     promises: [],
   }
@@ -159,7 +165,7 @@ class Kiss {
     if (!config) config = {}
     if (config.folders) {
       if (config.folders.src) {
-        this.folders = {
+        this._folders = {
           src: config.folders.src,
           assets: `${config.folders.src}/assets`,
           layouts: `${config.folders.src}/layouts`,
@@ -170,56 +176,71 @@ class Kiss {
           build: './public',
         }
       }
-      this.folders = { ...this.folders, ...config.folders }
+      this._folders = { ...this._folders, ...config.folders }
     }
-    config.folders = this.folders
+    config.folders = this._folders
     this.config.dev = false
     if (config.dev) this.config.dev = true
     this.config = config
 
-    console.debug('folders: '.grey, this.folders)
-    this.fileSystem.mkDir(this.folders.src)
-    this.fileSystem.mkDir(this.folders.assets)
-    this.fileSystem.mkDir(this.folders.layouts)
-    this.fileSystem.mkDir(this.folders.pages)
-    this.fileSystem.mkDir(this.folders.pages)
-    this.fileSystem.mkDir(this.folders.components)
-    this.fileSystem.mkDir(this.folders.models)
-    this.fileSystem.mkDir(this.folders.controllers)
+    console.debug('folders: '.grey, this._folders)
+    this._private.fileSystem.mkDir(this._folders.src)
+    this._private.fileSystem.mkDir(this._folders.assets)
+    this._private.fileSystem.mkDir(this._folders.layouts)
+    this._private.fileSystem.mkDir(this._folders.pages)
+    this._private.fileSystem.mkDir(this._folders.pages)
+    this._private.fileSystem.mkDir(this._folders.components)
+    this._private.fileSystem.mkDir(this._folders.models)
+    this._private.fileSystem.mkDir(this._folders.controllers)
 
     try {
-      rimraf.sync(this.folders.build)
+      rimraf.sync(this._folders.build)
     } catch (err) {
       console.log(colors.red(err.message))
     }
-    this.fileSystem.mkDir(this.folders.build)
+    this._private.fileSystem.mkDir(this._folders.build)
 
-    ncp(this.folders.assets, this.folders.build, function (err) {
+    ncp(this._folders.assets, this._folders.build, function (err) {
       if (err) {
         console.error('Error: '.red, err)
       }
 
-      console.log(`Copied ${self.folders.assets} to ${self.folders.build}`.grey)
+      console.log(
+        `Copied ${self._folders.assets} to ${self._folders.build}`.grey
+      )
     })
 
-    this.registerPartials(this.folders.components)
-    this.registerPartials(this.folders.layouts)
+    this.registerPartials(this._folders.components)
+    this.registerPartials(this._folders.layouts)
+
+    console.log('Generating:'.grey)
   }
 
-  fileSystem = {
-    mkDir(dir) {
-      dir = dir.toLowerCase()
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true })
-      }
+  _private = {
+    fileSystem: {
+      mkDir(dir) {
+        dir = dir.toLowerCase()
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir, { recursive: true })
+        }
+      },
+      exists(dir) {
+        return fs.existsSync(dir)
+      },
     },
-    exists(dir) {
-      return fs.existsSync(dir)
-    },
+  }
+
+  _readModel(file) {
+    const model = `${this._folders.models}/${file}`
+    if (this._private.fileSystem.exists(model)) {
+      return JSON.parse(fs.readFileSync(model, 'utf8'))
+    }
+    console.error('Can not find model on file system'.red, model)
+    return null
   }
 
   registerPartials(folder) {
-    console.log('Registering partials: '.grey)
+    console.log(`Registering ${folder.replace(this._folders.src, '')}: `.grey)
     const hbs = glob.sync(`${folder}/**/*.hbs`)
     hbs.forEach((path) => {
       // console.debug('partial: '.grey, path)
@@ -233,15 +254,6 @@ class Kiss {
       handlebars.registerPartial(name, source)
       console.log(name.blue)
     })
-  }
-
-  readModel(file) {
-    const model = `${this.folders.models}/${file}`
-    if (this.fileSystem.exists(model)) {
-      return JSON.parse(fs.readFileSync(model, 'utf8'))
-    }
-    console.error('Can not find model on file system'.red, model)
-    return null
   }
 
   configOptionMapper(options, optionMapper) {
@@ -262,8 +274,8 @@ class Kiss {
 
   generate(options, optionMapper) {
     if (options.controller) {
-      const controllerPath = `${this.folders.controllers}/${options.controller}`
-      if (this.fileSystem.exists(controllerPath)) {
+      const controllerPath = `${this._folders.controllers}/${options.controller}`
+      if (this._private.fileSystem.exists(controllerPath)) {
         const controller = require.main.require(controllerPath)
         options = this.configOptionMapper(options, controller)
       }
@@ -279,12 +291,11 @@ class Kiss {
     }
 
     // console.debug('options:'.grey, options)
-    const kissPage = new Page(options.view)
-    kissPage.buildDir = this.folders.build
-    kissPage.pageDir = this.folders.pages
-    kissPage.slug = options.slug
-    kissPage.path = options.path
+    const kissPage = new KissPage(`${this._folders.pages}/${options.view}`)
     kissPage.options = options
+    kissPage.buildDir = this._folders.build
+    kissPage.path = options.path
+    kissPage.slug = options.slug
     kissPage.debug = this.config.dev
     kissPage.generate()
     // console.debug(kissPage)
@@ -334,21 +345,21 @@ class Kiss {
             console.error(colors.yellow(error))
           })
       } else if (options.model.endsWith('.json')) {
-        const data = this.readModel(options.model)
+        const data = this._readModel(options.model)
         if (data) {
           this.generator(options, optionMapper, data)
         } else {
           console.log('Skipping: ', options.view)
         }
-      } else if (fs.existsSync(`${this.folders.models}/${options.model}`)) {
-        const modelPath = `${this.folders.models}/${options.model}`
+      } else if (fs.existsSync(`${this._folders.models}/${options.model}`)) {
+        const modelPath = `${this._folders.models}/${options.model}`
         if (fs.lstatSync(modelPath).isDirectory()) {
           const models = glob.sync(`${modelPath}/*.json`)
           const modelArray = []
           models.forEach((model) => {
             // console.debug(model.grey)
-            const data = this.readModel(
-              model.replace(`${this.folders.models}/`, '')
+            const data = this._readModel(
+              model.replace(`${this._folders.models}/`, '')
             )
             if (data) modelArray.push(data)
           })
@@ -363,32 +374,36 @@ class Kiss {
       this.generate(options, optionMapper)
     }
 
-    this.state.views.push(options.view)
+    this._state.views.push(options.view)
     return this
   }
 
   pages(options, optionMapper) {
     options.dynamic = true
     this.page(options, optionMapper)
-    this.state.views.push(options.view)
+    this._state.views.push(options.view)
     return this
   }
 
   scan() {
-    const pages = glob.sync(`${this.folders.pages}/**/*.hbs`)
+    const pages = glob.sync(`${this._folders.pages}/**/*.hbs`)
     pages.forEach((pagePath) => {
       const view = pagePath.replace(
-        new RegExp(`^${this.folders.pages}/`, 'g'),
+        new RegExp(`^${this._folders.pages}/`, 'g'),
         ''
       )
-      if (!this.state.views.some((v) => v === view)) {
+      if (!this._state.views.some((v) => v === view)) {
         console.log(`Auto added:`.grey, view.blue)
         const options = {
           view: view,
         }
 
         const matchingModel = view.replace(/\.hbs$/, '.json')
-        if (this.fileSystem.exists(`${this.folders.models}/${matchingModel}`)) {
+        if (
+          this._private.fileSystem.exists(
+            `${this._folders.models}/${matchingModel}`
+          )
+        ) {
           console.log('Found matching model: '.grey, matchingModel)
           options.model = matchingModel
         }
@@ -404,8 +419,8 @@ class Kiss {
   }
 
   viewState() {
-    // console.log(JSON.stringify(this.state, null, 1))
-    console.log(this.state)
+    // console.log(JSON.stringify(this._state, null, 1))
+    console.log(this._state)
     return this
   }
 }

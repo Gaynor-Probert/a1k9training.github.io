@@ -5,6 +5,7 @@ kiss
   .page({
     model: 'index.json',
     view: 'index.hbs',
+    controller: 'metaMapper.js',
   })
   .page({
     model: 'find-us.json',
