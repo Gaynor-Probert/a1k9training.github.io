@@ -1,4 +1,4 @@
-const Kiss = require('./src/kiss-ssg.js')
+const Kiss = require('kiss-ssg')
 const kiss = new Kiss({ dev: true })
 
 kiss
