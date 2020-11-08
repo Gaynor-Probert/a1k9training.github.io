@@ -1,1 +1,7 @@
-{ "slug": "platinum-obedience", "title": "", "description": "" }
+{
+  "slug": "platinum-obedience",
+  "title": "Platinum Dog Training Course",
+  "description": "",
+  "image": "/images/courses/platinum/platinum-course-v2.png",
+  "caption-class": "pull-right"
+}

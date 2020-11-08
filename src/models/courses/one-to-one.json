@@ -1,1 +1,7 @@
-{ "slug": "one-to-one", "title": "", "description": "" }
+{
+  "slug": "one-to-one",
+  "title": "One to one Dog Training",
+  "description": "",
+  "image": "/images/courses/one-to-one/one-to-one-v3.png",
+  "caption-class": "pull-right"
+}
