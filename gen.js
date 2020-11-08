@@ -4,7 +4,6 @@ const kiss = new Kiss({ dev: true })
 kiss
   .page({
     view: 'index.hbs',
-    controller: 'metaMapper.js',
     title: 'Dog Behaviour and Training',
     description: 'A1K9 Dog Behaviour and Training',
   })
