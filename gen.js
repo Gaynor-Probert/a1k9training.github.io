@@ -44,6 +44,8 @@ kiss
   .pages({
     view: 'course.hbs',
     model: 'courses',
+    controller: 'course.js',
+    path: 'courses',
   })
   .complete(() => {
     console.log('Success'.rainbow)
