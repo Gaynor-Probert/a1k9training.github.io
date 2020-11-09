@@ -1,14 +1,14 @@
 {
   "name": "a1k9-training",
   "version": "1.0.0",
-  "main": "kiss-ssg.js",
+  "main": "gen.js",
   "dependencies": {
     "glob": "^7.1.6"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.15.0",
     "http-server": "^0.12.3",
-    "kiss-ssg": "^0.5.2"
+    "kiss-ssg": "^0.6.2"
   },
   "scripts": {
     "gen": "node gen",
@@ -16,13 +16,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aviirna/k9-dev.git"
+    "url": "git+https://github.com/Gaynor-Probert/a1k9training.git"
   },
   "author": "Courtenay Probert",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aviirna/k9-dev/issues"
+    "url": "https://github.com/Gaynor-Probert/a1k9training/issues"
   },
-  "homepage": "https://github.com/aviirna/k9-dev#readme",
+  "homepage": "https://github.com/Gaynor-Probert/a1k9training#readme",
   "description": ""
 }
