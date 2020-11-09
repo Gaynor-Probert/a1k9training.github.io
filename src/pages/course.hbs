@@ -1,8 +1,14 @@
 {{#extend "layout"}}
 
 {{#content "intro"}}
+  {{this.model.components.intro}}
+  {{#if model.components.intro}}
+    Found
+    {{> (lookup model.components 'intro')}}
+  {{/if}}
   {{#markdown}}
     {{#if model.components.intro}}
+    Found
       {{> (lookup model.components 'intro')}}
     {{/if}}
   {{/markdown}}

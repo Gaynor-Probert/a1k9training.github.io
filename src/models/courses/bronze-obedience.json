@@ -6,9 +6,9 @@
   "caption-class": "pull-left",
   "heading": "Solid Foundation Training",
   "components": {
-    "intro": "dynamic",
-    "details": "dynamic",
+    "intro": "courses/bronze/intro",
+    "details": "courses/bronze/intro",
     "testimonial": "dynamic",
-    "foot": "dynamic"
+    "foot": "course-bronze-intro"
   }
 }

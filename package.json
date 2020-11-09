@@ -2,9 +2,7 @@
   "name": "a1k9-training",
   "version": "1.0.0",
   "main": "gen.js",
-  "dependencies": {
-    "glob": "^7.1.6"
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint-config-prettier": "^6.15.0",
     "http-server": "^0.12.3",
