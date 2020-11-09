@@ -2,14 +2,35 @@
 
 {{#content "intro"}}
   {{#markdown}}
-##{{title}}
+    {{#if model.components.intro}}
+      {{> (lookup model.components 'intro')}}
+    {{/if}}
   {{/markdown}}
 {{/content}}
 
 {{#content "main"}}
-{{#if this.model.dynamic}}
-  {{> (lookup model 'dynamic')}}
- {{/if}}
+  <div class="page-header">
+      <h1>{{model.heading}}</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8">
+        {{#if  model.components.details}}
+          {{> (lookup model.components 'details')}}
+        {{/if}}
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+      <div class="callout callout-info" style="margin: 0;">
+        {{#if  model.components.testimonial}}
+          {{> (lookup model.components 'testimonial')}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  {{#if  model.components.foot}}
+    {{> (lookup model.components 'foot')}}
+  {{/if}}
+
 {{/content}}
 
 {{#content "scripts"}}

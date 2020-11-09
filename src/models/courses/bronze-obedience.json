@@ -4,5 +4,11 @@
   "description": "",
   "image": "/images/courses/bronze/bronze-course-v2.png",
   "caption-class": "pull-left",
-  "dynamic": "layout/navbar"
+  "heading": "Focusing When There Are Distractions",
+  "components": {
+    "intro": "dynamic",
+    "details": "details",
+    "testimonial": "testimonial",
+    "foot": "foot"
+  }
 }
