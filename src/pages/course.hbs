@@ -7,7 +7,10 @@
 {{/content}}
 
 {{#content "main"}}
-
+{{#if this.model.dynamic}}
+  {{this.model.dynamic}}
+  {{> (lookup .. 'model.dynamic')}}
+ {{/if}}
 {{/content}}
 
 {{#content "scripts"}}

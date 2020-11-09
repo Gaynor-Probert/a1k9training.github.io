@@ -3,5 +3,6 @@
   "title": "Bronze Dog Training Course",
   "description": "",
   "image": "/images/courses/bronze/bronze-course-v2.png",
-  "caption-class": "pull-left"
+  "caption-class": "pull-left",
+  "dynamic": "layout/navbar"
 }
