@@ -4,11 +4,11 @@
   "description": "",
   "image": "/images/courses/bronze/bronze-course-v2.png",
   "caption-class": "pull-left",
-  "heading": "Focusing When There Are Distractions",
+  "heading": "Solid Foundation Training",
   "components": {
     "intro": "dynamic",
-    "details": "details",
-    "testimonial": "testimonial",
-    "foot": "foot"
+    "details": "dynamic",
+    "testimonial": "dynamic",
+    "foot": "dynamic"
   }
 }
