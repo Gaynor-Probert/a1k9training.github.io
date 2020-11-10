@@ -7,8 +7,8 @@
   "heading": "Solid Foundation Training",
   "components": {
     "intro": "courses/bronze/intro",
-    "details": "courses/bronze/intro",
-    "testimonial": "dynamic",
-    "foot": "course-bronze-intro"
+    "details": "courses/bronze/you-will-learn",
+    "testimonial": "courses/bronze/testimonial",
+    "foot": "courses/bronze/foot"
   }
 }
