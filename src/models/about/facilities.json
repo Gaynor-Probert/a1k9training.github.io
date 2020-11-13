@@ -1,0 +1,14 @@
+{
+  "slug": "about-facilities",
+  "title": "About Gaynor",
+  "image": "/images/about/facilities-v2.png",
+  "caption-class": "pull-left",
+  "next":  {
+    "name": "About Gaynor Probert",
+    "link": "/about/gaynor-probert.html"
+  },
+  "components": {
+    "intro": "about/facilities/intro",
+    "content": "about/facilities/content"
+  }
+}

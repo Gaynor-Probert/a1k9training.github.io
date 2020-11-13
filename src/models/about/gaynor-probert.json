@@ -1,0 +1,14 @@
+{
+  "slug": "about-facilities",
+  "title": "A1K9 Facilities",
+  "image": "/images/about/facilities-v2.png",
+  "caption-class": "pull-left",
+  "next":  {
+    "name": "About Sara Thomas",
+    "link": "/about/sara-thomas.html"
+  },
+  "components": {
+    "intro": "about/gaynor-probert/intro",
+    "content": "about/gaynor-probert/content"
+  }
+}

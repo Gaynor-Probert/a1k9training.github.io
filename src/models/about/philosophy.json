@@ -1,0 +1,14 @@
+{
+  "slug": "about-philosophy",
+  "title": "Gaynors Philosophy",
+  "image": "/images/about/philosophy-v4.png",
+  "caption-class": "pull-left",
+  "next":  {
+    "name": "About Facilities",
+    "link": "/about/facilities.html"
+  },
+  "components": {
+    "intro": "about/philosophy/intro",
+    "content": "about/philosophy/content"
+  }
+}
