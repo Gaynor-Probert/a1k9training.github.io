@@ -6,9 +6,9 @@
   "caption-class": "pull-right",
   "heading": "Congratulations! You have a new puppy.",
   "components": {
-    "intro": "courses/puppy-socialisation/intro",
-    "details": "courses/puppy-socialisation/you-will-learn",
-    "testimonial": "courses/puppy-socialisation/testimonial",
-    "foot": "courses/puppy-socialisation/foot"
+    "intro": "courses/puppy/intro",
+    "details": "courses/puppy/you-will-learn",
+    "testimonial": "courses/puppy/testimonial",
+    "foot": "courses/puppy/foot"
   }
 }
