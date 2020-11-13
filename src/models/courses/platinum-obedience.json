@@ -3,5 +3,12 @@
   "title": "Platinum Dog Training Course",
   "description": "",
   "image": "/images/courses/platinum/platinum-course-v2.png",
-  "caption-class": "pull-right"
+  "caption-class": "pull-right",
+  "heading": "Training to the Highest Standards",
+  "components": {
+    "intro": "courses/platinum/intro",
+    "details": "courses/platinum/you-will-learn",
+    "testimonial": "courses/platinum/testimonial",
+    "foot": "courses/platinum/foot"
+  }
 }

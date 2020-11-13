@@ -3,5 +3,12 @@
   "title": "One to one Dog Training",
   "description": "",
   "image": "/images/courses/one-to-one/one-to-one-v3.png",
-  "caption-class": "pull-right"
+  "caption-class": "pull-right",
+  "heading": "What's Right For You?",
+  "components": {
+    "intro": "courses/one-to-one/intro",
+    "details": "courses/one-to-one/you-will-learn",
+    "testimonial": "courses/one-to-one/testimonial",
+    "foot": "courses/one-to-one/foot"
+  }
 }

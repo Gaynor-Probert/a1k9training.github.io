@@ -3,5 +3,12 @@
   "title": "Junior Dog Training Course",
   "description": "",
   "image": "/images/courses/junior/junior-course-v3.png",
-  "caption-class": "pull-right push-down"
+  "caption-class": "pull-right push-down",
+  "heading": "Engagement Training",
+  "components": {
+    "intro": "courses/junior/intro",
+    "details": "courses/junior/you-will-learn",
+    "testimonial": "courses/junior/testimonial",
+    "foot": "courses/junior/foot"
+  }
 }
