@@ -37,7 +37,12 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.use(static(__dirname + '/public'))
+app.use(
+  static(__dirname + '/public', {
+    index: true,
+    extensions: true,
+  })
+)
 
 console.log('Serving (with live reload): ', 'http://localhost:3000')
 app.listen(3000)
