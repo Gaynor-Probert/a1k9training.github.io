@@ -39,8 +39,7 @@ app.use(function (req, res, next) {
 
 app.use(
   static(__dirname + '/public', {
-    index: true,
-    extensions: true,
+    extensions: ['html']
   })
 )
 

@@ -5,10 +5,9 @@
   "caption-class": "pull-left",
   "next":  {
     "name": "About Sara Thomas",
-    "link": "/about/sara-thomas.html"
+    "link": "/about/sara-thomas"
   },
   "components": {
-    "intro": "about/gaynor-probert/intro",
     "content": "about/gaynor-probert/content"
   }
 }

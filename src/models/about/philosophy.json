@@ -5,7 +5,7 @@
   "caption-class": "pull-left",
   "next":  {
     "name": "About Facilities",
-    "link": "/about/facilities.html"
+    "link": "/about/facilities"
   },
   "components": {
     "intro": "about/philosophy/intro",
