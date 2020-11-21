@@ -46,10 +46,14 @@ kiss
     title: 'Find A1K9',
   })
   .pages({
-    view: 'course.hbs',
+    view: 'courses/course.hbs',
     model: 'courses',
     controller: 'course.js',
     path: 'courses',
+  })
+  .page({
+    view: 'courses/index.hbs',
+    model: 'courses',
   })
   // About Section
   .page({
