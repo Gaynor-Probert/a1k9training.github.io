@@ -3,9 +3,9 @@
   "title": "About Gaynor",
   "image": "/images/about/facilities-v2.png",
   "caption-class": "pull-left",
-  "next":  {
+  "next": {
     "name": "About Gaynor Probert",
-    "link": "/about/gaynor-probert.html"
+    "link": "/about/gaynor-probert"
   },
   "components": {
     "intro": "about/facilities/intro",

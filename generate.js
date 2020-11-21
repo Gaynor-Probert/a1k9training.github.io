@@ -4,6 +4,7 @@ const kiss = new Kiss({
   dev: args.length > 0,
   verbose: true,
   folders: { build: './docs' },
+  sass: { includePaths: ['./node_modules/bootstrap/scss'] },
 })
 kiss
   .page({
@@ -18,6 +19,8 @@ kiss
       'caption-class': 'pull-right',
     },
     title: 'Dog Behavioural Consultations - by Gaynor Probert',
+    path: '/',
+    slug: 'behavioural-consultations',
   })
   .page({
     view: 'behavioural-consultations/dog-on-dog-aggression.hbs',
@@ -54,13 +57,15 @@ kiss
   .page({
     view: 'courses/index.hbs',
     model: 'courses',
+    path: '/',
+    slug: 'courses',
   })
   // About Section
   .page({
     view: 'about/philosophy.hbs',
     model: 'about/philosophy.json',
-    path: 'about',
-    slug: 'index',
+    path: '/',
+    slug: 'about',
   })
   .page({
     view: 'about/facilities.hbs',

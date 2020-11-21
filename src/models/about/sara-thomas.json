@@ -3,9 +3,9 @@
   "title": "About Sara",
   "image": "/images/about/sara-thomas-v2.png",
   "caption-class": "pull-left",
-  "next":  {
+  "next": {
     "name": "Get in touch",
-    "link": "/find-us.html"
+    "link": "/find-us"
   },
   "components": {
     "intro": "about/sara-thomas/intro",
