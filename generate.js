@@ -12,6 +12,7 @@ kiss
     title: 'Dog Behaviour and Training',
     description: 'A1K9 Dog Behaviour and Training',
   })
+
   .page({
     view: 'behavioural-consultations/index.hbs',
     model: {
@@ -19,8 +20,6 @@ kiss
       'caption-class': 'pull-right',
     },
     title: 'Dog Behavioural Consultations - by Gaynor Probert',
-    path: '/',
-    slug: 'behavioural-consultations',
   })
   .page({
     view: 'behavioural-consultations/dog-on-dog-aggression.hbs',
@@ -40,13 +39,18 @@ kiss
     },
     title: 'Behavioural Consultations for Dog on Person Aggression',
   })
+
   .page({
-    view: 'find-us.hbs',
+    view: 'courses/index.hbs',
+    model: 'courses',
     model: {
-      image: '/images/about/horse-sit-v1.png',
-      'caption-class': 'pull-right push-down',
+      image: '/images/courses/classes-v1.1.png',
+      'caption-class': 'pull-left',
+      components: {
+        intro: '',
+      },
     },
-    title: 'Find A1K9',
+    title: 'Gaynor Probert Dog Training Classes',
   })
   .pages({
     view: 'courses/course.hbs',
@@ -54,18 +58,13 @@ kiss
     controller: 'course.js',
     path: 'courses',
   })
-  .page({
-    view: 'courses/index.hbs',
-    model: 'courses',
-    path: '/',
-    slug: 'courses',
-  })
+
   // About Section
   .page({
     view: 'about/philosophy.hbs',
     model: 'about/philosophy.json',
-    path: '/',
-    slug: 'about',
+    path: 'about',
+    slug: 'index',
   })
   .page({
     view: 'about/facilities.hbs',
@@ -79,6 +78,16 @@ kiss
     view: 'about/sara-thomas.hbs',
     model: 'about/sara-thomas.json',
   })
+
+  .page({
+    view: 'find-us.hbs',
+    model: {
+      image: '/images/about/horse-sit-v1.png',
+      'caption-class': 'pull-right push-down',
+    },
+    title: 'Find A1K9',
+  })
+
   .generate(() => {
     console.log('Success'.rainbow)
   })
