@@ -1,7 +1,10 @@
 const Kiss = require('kiss-ssg')
 var args = process.argv.slice(2)
-const kiss = new Kiss({ dev: args.length > 0, verbose: true })
-
+const kiss = new Kiss({
+  dev: args.length > 0,
+  verbose: true,
+  folders: { build: './docs' },
+})
 kiss
   .page({
     view: 'index.hbs',
@@ -52,6 +55,8 @@ kiss
   .page({
     view: 'about/philosophy.hbs',
     model: 'about/philosophy.json',
+    path: 'about',
+    slug: 'index',
   })
   .page({
     view: 'about/facilities.hbs',

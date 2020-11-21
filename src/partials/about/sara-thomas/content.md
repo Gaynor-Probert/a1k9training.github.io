@@ -4,5 +4,4 @@ She worked in a kennels for many years and it was there that she learned much ab
 
 She first came to Gaynor here at A1K9 Behaviour and Training Academy when she had a problem with one of her German Shepherds and she came to get help in rectifying his behaviour.Since then she passed Bronze, Silver, Gold and Platinum Course evaluations with her dogs.
 
-Sara is now Gaynors apprentice in the obedience classes and also works part time as a dog trainer here at A1K9 Behaviour and Training Academy and is a valued member of our team.
-
+Sara is now Gaynor's apprentice in the obedience classes and also works part time as a dog trainer here at A1K9 Behaviour and Training Academy and is a valued member of our team.
