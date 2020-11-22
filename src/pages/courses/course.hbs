@@ -16,15 +16,16 @@
           {{> (lookup model.components 'details')}}
         {{/if}}
     </div>
+    {{#if  model.components.testimonial}}
     <div class="col-xs-12 col-sm-12 col-md-4">
       <div class="callout callout-info" style="margin: 0;">
-        {{#if  model.components.testimonial}}
-          {{> (lookup model.components 'testimonial')}}
-        {{/if}}
+        {{> (lookup model.components 'testimonial')}} 
       </div>
     </div>
+    {{/if}}
   </div>
 
+  <hr />
   {{#if  model.components.foot}}
     {{> (lookup model.components 'foot')}}
   {{/if}}

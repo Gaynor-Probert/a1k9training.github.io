@@ -92,4 +92,5 @@ kiss
 
   .generate(() => {
     console.log('Success'.rainbow)
+    console.log('http://localhost:3000')
   })
