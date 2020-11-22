@@ -1,13 +1,13 @@
 {
-  "slug": "about-facilities",
-  "title": "A1K9 Facilities",
-  "image": "/images/about/facilities-v2.png",
+  "title": "Gaynor Probert - About Me",
+  "image": "/images/about/gaynor-probert-v1.png",
   "caption-class": "pull-left",
-  "next":  {
+  "next": {
     "name": "About Sara Thomas",
     "link": "/about/sara-thomas"
   },
   "components": {
+    "intro": "about/gaynor-probert/intro",
     "content": "about/gaynor-probert/content"
   }
 }

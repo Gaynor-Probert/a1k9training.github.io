@@ -12,13 +12,12 @@
   </div>
 
   {{> "courses/index/main" model }}
+  {{> "faqs" model.faqs }}
 
   <div class="row">
-      {{> "faqs" model.faqs }}
-  </div>
-
-  <div class="row">
+    <div class="col-md-12">
       <a href="/courses/puppy-socialisation" class="btn btn-primary">Next: Puppy Socialisation</a>
+    </div>
   </div>
 {{/content}}
 

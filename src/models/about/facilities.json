@@ -1,8 +1,8 @@
 {
   "slug": "about-facilities",
-  "title": "About Gaynor",
+  "title": "About the A1K9 Facilities",
   "image": "/images/about/facilities-v2.png",
-  "caption-class": "pull-left",
+  "caption-class": "pull-right push-down",
   "next": {
     "name": "About Gaynor Probert",
     "link": "/about/gaynor-probert"

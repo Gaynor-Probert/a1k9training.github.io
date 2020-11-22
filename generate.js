@@ -7,16 +7,12 @@ const kiss = new Kiss({
   sass: { includePaths: ['./node_modules/bootstrap/scss'] },
 })
 
-kiss.handlebars.registerHelper('offset', function (index) {
-  index++
-  return index
-})
-
 kiss
   .page({
     view: 'index.hbs',
-    title: 'Dog Behaviour and Training',
-    description: 'A1K9 Dog Behaviour and Training',
+    title: 'Gaynor Probert - Dog Behaviour and Training at A1K9 ',
+    description:
+      'Gaynor Probert K9 Behaviour and Training - Improving relationships between dogs and their owners',
   })
 
   .page({
@@ -48,20 +44,12 @@ kiss
 
   .page({
     view: 'courses/index.hbs',
-    model: 'courses',
     model: {
       image: '/images/courses/classes-v1.1.png',
       'caption-class': 'pull-left',
-      faqs: './src/models/faqs/courses.json',
+      faqs: '../models/faqs/courses.json',
     },
-    controller: ({ model }) => {
-      console.log('Loading sub model:', model.faqs)
-      const faqs = require(model.faqs)
-      console.log(faqs)
-      return {
-        model: { faqs: faqs.faqs },
-      }
-    },
+    controller: 'faqMapper.js',
     title: 'Gaynor Probert Dog Training Classes',
   })
   .pages({
@@ -98,6 +86,8 @@ kiss
       'caption-class': 'pull-right push-down',
     },
     title: 'Find A1K9',
+    path: 'find-us',
+    slug: 'index',
   })
 
   .generate(() => {

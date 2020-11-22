@@ -3,7 +3,7 @@
   "title": "Gold Dog Training Course",
   "description": "",
   "image": "/images/courses/gold/gold-course-v1.png",
-  "caption-class": "pull-down",
+  "caption-class": "push-down",
   "heading": "Focusing When There Are Distractions",
   "components": {
     "intro": "courses/gold/intro",

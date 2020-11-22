@@ -1,9 +1,9 @@
 {
   "slug": "about-philosophy",
-  "title": "Gaynors Philosophy",
+  "title": "Gaynor Probert - My Philosophy",
   "image": "/images/about/philosophy-v4.png",
   "caption-class": "pull-left",
-  "next":  {
+  "next": {
     "name": "About Facilities",
     "link": "/about/facilities"
   },

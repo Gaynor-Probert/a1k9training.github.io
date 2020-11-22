@@ -1,7 +1,9 @@
 {{#extend "layout"}}
 
     {{#content "intro"}}
-
+        {{#if model.components.intro}}
+            {{> (lookup model.components 'intro')}}
+        {{/if}}
     {{/content}}
 
     {{#content "main"}}
