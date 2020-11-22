@@ -6,6 +6,12 @@ const kiss = new Kiss({
   folders: { build: './docs' },
   sass: { includePaths: ['./node_modules/bootstrap/scss'] },
 })
+
+kiss.handlebars.registerHelper('offset', function (index) {
+  index++
+  return index
+})
+
 kiss
   .page({
     view: 'index.hbs',
@@ -46,9 +52,15 @@ kiss
     model: {
       image: '/images/courses/classes-v1.1.png',
       'caption-class': 'pull-left',
-      components: {
-        intro: '',
-      },
+      faqs: './src/models/faqs/courses.json',
+    },
+    controller: ({ model }) => {
+      console.log('Loading sub model:', model.faqs)
+      const faqs = require(model.faqs)
+      console.log(faqs)
+      return {
+        model: { faqs: faqs.faqs },
+      }
     },
     title: 'Gaynor Probert Dog Training Classes',
   })
