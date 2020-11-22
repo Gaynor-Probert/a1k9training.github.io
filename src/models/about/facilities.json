@@ -1,0 +1,14 @@
+{
+  "slug": "about-facilities",
+  "title": "About the A1K9 Facilities",
+  "image": "/images/about/facilities-v2.png",
+  "caption-class": "pull-right push-down",
+  "next": {
+    "name": "About Gaynor Probert",
+    "link": "/about/gaynor-probert"
+  },
+  "components": {
+    "intro": "about/facilities/intro",
+    "content": "about/facilities/content"
+  }
+}

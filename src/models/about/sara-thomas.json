@@ -1,0 +1,14 @@
+{
+  "slug": "about-sara-thomas",
+  "title": "Sara Thomas",
+  "image": "/images/about/sara-thomas-v2.png",
+  "caption-class": "pull-right",
+  "next": {
+    "name": "Get in touch",
+    "link": "/find-us"
+  },
+  "components": {
+    "intro": "about/sara-thomas/intro",
+    "content": "about/sara-thomas/content"
+  }
+}

@@ -1,0 +1,39 @@
+{{#extend "layout"}}
+
+{{#content "intro"}}
+  {{#if model.components.intro}}
+    {{> (lookup model.components 'intro')}}
+  {{/if}}
+{{/content}}
+
+{{#content "main"}}
+  <div class="page-header">
+      <h1>{{model.heading}}</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8">
+        {{#if  model.components.details}}
+          {{> (lookup model.components 'details')}}
+        {{/if}}
+    </div>
+    {{#if  model.components.testimonial}}
+    <div class="col-xs-12 col-sm-12 col-md-4">
+      <div class="callout callout-info" style="margin: 0;">
+        {{> (lookup model.components 'testimonial')}} 
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  <hr />
+  {{#if  model.components.foot}}
+    {{> (lookup model.components 'foot')}}
+  {{/if}}
+
+{{/content}}
+
+{{#content "scripts"}}
+
+{{/content}}
+
+{{/extend}}

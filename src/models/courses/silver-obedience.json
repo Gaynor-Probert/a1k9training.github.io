@@ -1,0 +1,14 @@
+{
+  "slug": "silver-obedience",
+  "title": "Silver Dog Training Course",
+  "description": "",
+  "image": "/images/courses/silver/silver-course-v1.png",
+  "caption-class": "pull-right",
+  "heading": "Develop Your Training Techniques",
+  "components": {
+    "intro": "courses/silver/intro",
+    "details": "courses/silver/you-will-learn",
+    "testimonial": "courses/silver/testimonial",
+    "foot": "courses/silver/foot"
+  }
+}

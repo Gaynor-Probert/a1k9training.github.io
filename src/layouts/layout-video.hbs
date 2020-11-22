@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    {{> "layout/header"}}
+    <link href="/css/video.css" rel="stylesheet">
+  </head>
+  <body>
+    {{> "layout/navbar"}}
+
+    <section class="content-section video-section" style="background-image: url('/images/gaynor-probert-home-v1.1.png');">
+      <div class="pattern-overlay">
+      <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=XAHaVETM1sE', containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1, ratio: '16/9', loop:false}">bg</a>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              {{#block "intro"}}{{/block}}
+         </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <div class="container marketing">
+
+        {{#block "main"}}{{/block}}
+
+        {{> "layout/footer"}}
+    </div>
+
+    {{>"layout/scripts"}}
+    {{#block "scripts" mode="prepend"}}
+    {{/block}}
+
+    {{#if config.dev}}
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> 
+    {{/if}}
+  </body>
+</html>

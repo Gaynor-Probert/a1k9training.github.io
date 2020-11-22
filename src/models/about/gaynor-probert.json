@@ -1,0 +1,13 @@
+{
+  "title": "Gaynor Probert - About Me",
+  "image": "/images/about/gaynor-probert-v1.png",
+  "caption-class": "pull-left",
+  "next": {
+    "name": "About Sara Thomas",
+    "link": "/about/sara-thomas"
+  },
+  "components": {
+    "intro": "about/gaynor-probert/intro",
+    "content": "about/gaynor-probert/content"
+  }
+}

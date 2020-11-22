@@ -1,0 +1,34 @@
+{
+  "name": "a1k9-training",
+  "version": "1.0.0",
+  "main": "generate.js",
+  "dependencies": {
+    "bootstrap": "^4.5.3"
+  },
+  "devDependencies": {
+    "chokidar": "^3.4.3",
+    "connect": "^3.7.0",
+    "connect-compiler": "^0.1.3",
+    "eslint-config-prettier": "^6.15.0",
+    "fs-extra": "^9.0.1",
+    "kiss-ssg": "^1.0.2",
+    "livereload": "^0.9.1",
+    "sass": "^1.29.0",
+    "serve-static": "^1.14.1"
+  },
+  "scripts": {
+    "gen": "node generate",
+    "dev": "node generate dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gaynor-Probert/a1k9training.git"
+  },
+  "author": "Courtenay Probert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gaynor-Probert/a1k9training/issues"
+  },
+  "homepage": "https://github.com/Gaynor-Probert/a1k9training#readme",
+  "description": ""
+}

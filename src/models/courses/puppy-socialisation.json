@@ -1,0 +1,14 @@
+{
+  "slug": "puppy-socialisation",
+  "title": "Puppy Class Swansea",
+  "description": "",
+  "image": "/images/courses/puppy/puppy-class-v2.png",
+  "caption-class": "pull-right",
+  "heading": "Congratulations! You have a new puppy.",
+  "components": {
+    "intro": "courses/puppy/intro",
+    "details": "courses/puppy/you-will-learn",
+    "testimonial": "courses/puppy/testimonial",
+    "foot": "courses/puppy/foot"
+  }
+}

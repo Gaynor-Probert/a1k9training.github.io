@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{title}}</title>
+    {{#if description}}
+        <meta name="description" content="{{description}}">
+    {{/if}}
+    {{> "layout/header"}}
+</head>
+<body>
+{{> "layout/navbar"}}
+
+<div class="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="fill video-section" style="background-image: url('{{model.image}}'); z-index: -99;">
+                
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 {{model.caption-class}}">
+                                <div class="caption" style="{{model.caption-class}}">
+                                    {{#block "intro"}}{{/block}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    {{#block "main"}}{{/block}}
+    {{> "layout/footer"}}
+
+    {{> "layout/scripts"}}
+    {{#block "scripts"}}{{/block}}
+</div>
+
+{{#if config.dev}}
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+{{/if}}
+</body>
+</html>
