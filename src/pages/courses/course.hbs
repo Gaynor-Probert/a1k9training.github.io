@@ -12,14 +12,14 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8">
-        {{#if  model.components.details}}
-          {{> (lookup model.components 'details')}}
-        {{/if}}
+      {{#if  model.components.details}}
+        {{> (lookup model.components 'details')}}
+      {{/if}}
     </div>
     {{#if  model.components.testimonial}}
     <div class="col-xs-12 col-sm-12 col-md-4">
       <div class="callout callout-info" style="margin: 0;">
-        {{> (lookup model.components 'testimonial')}} 
+        {{> (lookup model.components 'testimonial')}}
       </div>
     </div>
     {{/if}}
@@ -32,8 +32,6 @@
 
 {{/content}}
 
-{{#content "scripts"}}
-
-{{/content}}
+{{#content "scripts"}}{{/content}}
 
 {{/extend}}

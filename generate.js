@@ -1,10 +1,15 @@
 const Kiss = require('kiss-ssg')
 var args = process.argv.slice(2)
+
+var d = new Date()
+var year = d.getFullYear()
+
 const kiss = new Kiss({
   dev: args.length > 0,
   verbose: true,
   folders: { build: './docs' },
   sass: { includePaths: ['./node_modules/bootstrap/scss'] },
+  year: year,
 })
 
 kiss

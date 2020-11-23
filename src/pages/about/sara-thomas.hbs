@@ -1,28 +1,28 @@
 {{#extend "layout"}}
 
-    {{#content "intro"}}
-        {{#if model.components.intro}}
-            {{> (lookup model.components 'intro')}}
-        {{/if}}
-    {{/content}}
+{{#content "intro"}}
+  {{#if model.components.intro}}
+    {{> (lookup model.components 'intro')}}
+  {{/if}}
+{{/content}}
 
 
-    {{#content "main"}}
-        <div class="page-header">
-            <h1>{{model.title}}</h1>
-        </div>
+{{#content "main"}}
+  <div class="page-header">
+    <h1>{{model.title}}</h1>
+  </div>
 
-        <div class="row">
-            <div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12">
 
-                {{#if model.components.content}}
-                    {{> (lookup model.components 'content')}}
-                {{/if}}
+      {{#if model.components.content}}
+      {{> (lookup model.components 'content')}}
+      {{/if}}
 
-                <a href="{{ model.next.link }}" class="btn btn-primary">Next: {{ model.next.name}} </a>
+      <a href="{{ model.next.link }}" class="btn btn-primary">Next: {{ model.next.name}} </a>
 
-            </div>
-        </div>
-    {{/content}}
+    </div>
+  </div>
+{{/content}}
 
 {{/extend}}
