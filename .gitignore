@@ -1,5 +1,7 @@
-node_modules/
-public/
-docs/
+node_modules
+.idea
 
+docs/**/*.json
+
+docs/
 
