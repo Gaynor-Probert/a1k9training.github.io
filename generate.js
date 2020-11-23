@@ -10,8 +10,7 @@ const kiss = new Kiss({
   folders: { build: './docs' },
   sass: { includePaths: ['./node_modules/bootstrap/scss'] },
   year: year,
-})
-
+}).copyAssets('./src/redirects', './docs')
 kiss
   .page({
     view: 'index.hbs',
