@@ -5,6 +5,7 @@
   "image": "/images/courses/silver/silver-course-v1.png",
   "caption-class": "pull-right",
   "heading": "Develop Your Training Techniques",
+  "faqs": "../models/faqs/silver.json",
   "components": {
     "intro": "courses/silver/intro",
     "details": "courses/silver/you-will-learn",

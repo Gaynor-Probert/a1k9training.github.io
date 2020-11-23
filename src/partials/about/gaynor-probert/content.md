@@ -1,3 +1,5 @@
+<img class="img-responsive img-thumbnail pull-right" src="/images/about/gaynor-probert-awards-v1.png" style="margin: 00 20px 10px;" />
+
 When she met her partner Charles in 1994, their mutual love of dogs led them to co found A1K9 Behaviour and Training Academy that is based just outside Swansea in South Wales; there they trained dogs to the highest standards establishing an international reputation for excellence that led them to provide trained dogs for clients worldwide.
 
 In 2004 Gaynor entered the British Police and Services Canine Association dog trials, this trial has three elements obedience, agility and Protection work to the highest standards, at the time there were no other women in this type of work in the private sector and she was competing against the Army, RAF, Northern Ireland and British Prison Service and different divisions of the Police service. It caused quite a stir when she won the associates cup, the first woman to win this very prestigious award.

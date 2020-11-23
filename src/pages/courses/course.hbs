@@ -25,6 +25,10 @@
     {{/if}}
   </div>
 
+  {{#if  model.faqs}}
+      {{> "faqs" model.faqs }}
+  {{/if}}
+
   <hr />
   {{#if  model.components.foot}}
     {{> (lookup model.components 'foot')}}
