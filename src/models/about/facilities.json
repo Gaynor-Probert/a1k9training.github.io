@@ -1,5 +1,5 @@
 {
-  "slug": "about-facilities",
+  "slug": "facilities",
   "title": "About the A1K9 Facilities",
   "image": "/images/about/facilities-v2.png",
   "caption-class": "pull-right push-down",
@@ -9,6 +9,7 @@
   },
   "components": {
     "intro": "about/facilities/intro",
-    "content": "about/facilities/content"
+    "content1": "about/facilities/main",
+    "content3": "about/facilities/facilities"
   }
 }

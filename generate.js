@@ -27,23 +27,11 @@ kiss
     },
     title: 'Dog Behavioural Consultations - by Gaynor Probert',
   })
-  .page({
-    view: 'behavioural-consultations/dog-on-dog-aggression.hbs',
-    model: {
-      image:
-        '/images/consultations/dog-on-dog-aggression/dog-on-dog-aggression-v1.png',
-      'caption-class': 'pull-right',
-    },
-    title: 'Behavioural Consultations for Dog on Dog Aggression',
-  })
-  .page({
-    view: 'behavioural-consultations/dog-on-person-aggression.hbs',
-    model: {
-      image:
-        '/images/consultations/dog-on-person-aggression/dog-on-person-aggression-v3.png',
-      'caption-class': 'pull-left',
-    },
-    title: 'Behavioural Consultations for Dog on Person Aggression',
+  .pages({
+    view: 'behavioural-consultations/consultation.hbs',
+    model: 'behavioural-consultations',
+    controller: 'behavioural-consultations.js',
+    path: 'behavioural-consultations',
   })
 
   .page({
@@ -63,24 +51,10 @@ kiss
     path: 'courses',
   })
 
-  // About Section
-  .page({
-    view: 'about/philosophy.hbs',
-    model: 'about/philosophy.json',
-    path: 'about',
-    slug: 'index',
-  })
-  .page({
-    view: 'about/facilities.hbs',
-    model: 'about/facilities.json',
-  })
-  .page({
-    view: 'about/gaynor-probert.hbs',
-    model: 'about/gaynor-probert.json',
-  })
-  .page({
-    view: 'about/sara-thomas.hbs',
-    model: 'about/sara-thomas.json',
+  .pages({
+    view: 'about.hbs',
+    model: 'about',
+    controller: 'about.js',
   })
 
   .page({
@@ -94,7 +68,7 @@ kiss
     slug: 'index',
   })
 
-  .generate(() => {
-    console.log('Success'.rainbow)
-    console.log('http://localhost:3000')
+  .generate(function () {
+    console.log('Success'.rainbow, this.isDev)
+    console.log('http://localhost:3000'.yellow)
   })

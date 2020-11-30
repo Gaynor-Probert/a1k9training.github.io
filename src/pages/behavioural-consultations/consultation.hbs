@@ -1,0 +1,37 @@
+{{#extend "layout"}}
+
+{{#content "intro"}}
+  {{#if model.components.intro}}
+    {{> (lookup model.components 'intro')}}
+  {{/if}}
+{{/content}}
+
+{{#content "main"}}
+<div class="page-header">
+    <h1>{{model.heading}}</h1>
+</div>
+
+<div class="row">
+
+	<div class="col-xs-12 col-sm-6 col-md-6">
+      {{#if  model.components.details}}
+        {{> (lookup model.components 'details')}}
+      {{/if}}
+	</div>
+
+	<div class="col-xs-12 col-sm-6 col-md-6">
+    {{> "behavioural-consultations/shared/vet-referrals" }}
+		{{> "behavioural-consultations/shared/what-to-expect-in-a-behavioural-consultation" }}
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<a href="https://cprobert.wufoo.com/forms/gaynor-probert/" class="sendmail btn btn-success" target="_blank">Contact Me</a>
+	</div>
+
+</div>
+
+{{/content}}
+
+{{#content "scripts"}}{{/content}}
+
+{{/extend}}

@@ -1,4 +1,5 @@
 {
+  "slug": "gaynor-probert",
   "title": "Gaynor Probert - About Me",
   "image": "/images/about/gaynor-probert-v1.png",
   "caption-class": "pull-left",
@@ -8,6 +9,8 @@
   },
   "components": {
     "intro": "about/gaynor-probert/intro",
-    "content": "about/gaynor-probert/content"
+    "content1": "about/gaynor-probert/background",
+    "content2": "about/gaynor-probert/awards",
+    "content3": "about/gaynor-probert/associations"
   }
 }
