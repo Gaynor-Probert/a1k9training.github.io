@@ -8,4 +8,4 @@ The way that dogs will accept other dogs is amazing to see. They quickly settle 
 
 Dogs do not feel pity for dogs that have had a bad start with their previous owners; they teach the rules for safety and harmony and live in the moment.
 
-Every week at the beginning and the end of the classes the dogs are allowed to experience running free and playing with their new furry friends to expend their energy and this helps them to be calmer and more well balenced.
+Every week at the beginning and the end of the classes the dogs are allowed to experience running free and playing with their new furry friends to expend their energy and this helps them to be calmer and more well balanced.

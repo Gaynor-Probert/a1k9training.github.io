@@ -1,6 +1,7 @@
 {
   "slug": "sara-thomas",
   "title": "Sara Thomas",
+  "description": "",
   "image": "/images/about/sara-thomas-v2.png",
   "caption-class": "pull-right",
   "next": {
@@ -9,6 +10,6 @@
   },
   "components": {
     "intro": "about/sara-thomas/intro",
-    "content1": "about/sara-thomas/background"
+    "row1": "about/sara-thomas/background"
   }
 }

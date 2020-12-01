@@ -5,5 +5,7 @@ module.exports = ({ model }) => {
     path: 'about',
     slug: model.slug,
     model,
+    title: model.title,
+    description: model.description,
   }
 }

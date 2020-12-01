@@ -1,6 +1,7 @@
 {
   "slug": "index",
   "title": "Gaynor Probert - My Philosophy",
+  "description": "",
   "image": "/images/about/philosophy-v4.png",
   "caption-class": "pull-right push-down",
   "next": {
@@ -9,6 +10,6 @@
   },
   "components": {
     "intro": "about/index/intro",
-    "content1": "about/index/main"
+    "row1": "about/index/main"
   }
 }

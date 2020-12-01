@@ -10,11 +10,11 @@ const kiss = new Kiss({
   folders: { build: './docs' },
   sass: { includePaths: ['./node_modules/bootstrap/scss'] },
   year: year,
-}).copyAssets('./src/redirects', './docs')
-kiss
+})
+
   .page({
     view: 'index.hbs',
-    title: 'Gaynor Probert - Dog Behaviour and Training at A1K9 ',
+    title: 'Gaynor Probert - Dog Behaviour and Trainer South Wales',
     description:
       'Gaynor Probert K9 Behaviour and Training - Improving relationships between dogs and their owners',
   })
@@ -25,7 +25,7 @@ kiss
       image: '/images/consultations/consultations-v1.png',
       'caption-class': 'pull-right',
     },
-    title: 'Dog Behavioural Consultations - by Gaynor Probert',
+    title: 'Dog Behavioural Consultations in South Wales by Gaynor Probert',
   })
   .pages({
     view: 'behavioural-consultations/consultation.hbs',
@@ -42,7 +42,7 @@ kiss
       faqs: '../models/faqs/courses.json',
     },
     controller: 'faqMapper.js',
-    title: 'Gaynor Probert Dog Training Classes',
+    title: 'Dog Training Classes South Wales with Gaynor Probert',
   })
   .pages({
     view: 'courses/course.hbs',
@@ -69,6 +69,6 @@ kiss
   })
 
   .generate(function () {
-    console.log('Success'.rainbow, this.isDev)
-    console.log('http://localhost:3000'.yellow)
+    console.log('Success'.rainbow)
+    if (this.config.dev) console.log('http://localhost:3000'.yellow)
   })

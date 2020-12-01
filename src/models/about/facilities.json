@@ -1,6 +1,7 @@
 {
   "slug": "facilities",
-  "title": "About the A1K9 Facilities",
+  "title": "About the A1K9 Training Facilities",
+  "description": "",
   "image": "/images/about/facilities-v2.png",
   "caption-class": "pull-right push-down",
   "next": {
@@ -9,7 +10,7 @@
   },
   "components": {
     "intro": "about/facilities/intro",
-    "content1": "about/facilities/main",
-    "content3": "about/facilities/facilities"
+    "row1": "about/facilities/main",
+    "section3": "about/facilities/facilities"
   }
 }
